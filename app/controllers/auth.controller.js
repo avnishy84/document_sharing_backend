@@ -2,11 +2,8 @@ const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
 const Role = db.role;
-
 const Op = db.Sequelize.Op;
-
 var jwt = require("jsonwebtoken");
-
 exports.signup = (req, res) => {
   // Save User to Database
   User.create({
@@ -44,7 +41,8 @@ exports.signin = (req, res) => {
     where: {
       username: req.body.username,
     },
-  }).then((user) => {
+  })
+    .then((user) => {
       if (!user) {
         return res.status(404).send({ message: "Username Not Found." });
       }

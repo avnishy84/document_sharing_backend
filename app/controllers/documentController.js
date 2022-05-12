@@ -1,13 +1,16 @@
 {/*
 We Have 8 Modules in this file such tha
 1.  Create Document 
-2.
-3.
-4.
-5.
-6.
-7.
+2.  get all documents
+3.  get single document
+4.  update document
+5.  delete document by id
+6.  get published document
+7.  connect one to many relation document and Reviews
 8.  Upload Image using Multer & we Define the Name of File, Folder Where Our File stored, max size of file, file type we Acccept 
+9.  get Document By UserID
+10. Get Doc user Name By User ID
+11 Get Userb List
 */}
 const db = require('../models')
 // image Upload
@@ -124,7 +127,7 @@ const getUserDocument = async (req, res) => {
     res.status(200).send(document)
 }
 
-// Get Doc user Name By User ID
+// 10. Get Doc user Name By User ID
 const getUsernameById = async (req, res) => {
         let  userid = req.params.id;
         let user = await User.findOne({ where: { id: userid } })
